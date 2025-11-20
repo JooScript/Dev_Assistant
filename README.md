@@ -1,63 +1,21 @@
-# Code Generator in C#
+# Dev Assistant
+
+Dev Assistant is a C# utility designed to validate database rules, generate boilerplate code, and automate essential maintenance operations. It supports validating GUID-based IDs, generating SQL Server backups, and producing C# class models from database tables.  
+The project uses the **CS_Utilities** library for logging, guard clauses, helpers, and clean code principles.  
+Library: https://github.com/JooScript/CS_Utilities
+
+---
 
 ## Overview
-This project is a **Software Code Generator** built using **C#**. It automatically generates boilerplate code for applications using **Entity Framework (EF)**. The tool is designed to accelerate development by scaffolding consistent.
 
-## Features
+Dev Assistant provides three main capabilities:
 
-- Automatically generate:
-  - Repository and Unit of Work patterns
-  - Data Transfer Objects (DTOs)
-- Customizable templates
-- Supports EF Core (5.0+)
-- Scaffolds code based on existing EF models or database schema
+### 1. Database Validation  
+Ensures that key fields (such as `Id`) follow expected formats (e.g., GUID validation).
 
-## Technologies
+### 2. Database Backup  
+Generates timestamped `.bak` files using SQL Server’s built-in backup mechanism.
 
-- C# (.NET 6 or higher)
-- Entity Framework Core
-- CLI (.NET Console Application)
-
-## Getting Started
-
-### Installation
-
-Clone the repository:
-```bash
-git clone https://github.com/JooScript/Code_Generator.git
-cd ef-Code_Generator
-```
-
-Build the project:
-```bash
-dotnet build
-```
-
-### Usage
-
-#### 1. Generate EF Models from an Existing Database
-```bash
-dotnet ef dbcontext scaffold "Your-Connection-String" Microsoft.EntityFrameworkCore.SqlServer --context AppDbContext --output-dir Entities --context-dir Data
-```
-
-#### 2. Put The Connection String In appsettings.json
-
-#### 3. Run the Code Generator
-```bash
-dotnet run --project CodeGenerator_ConsoleApp.csproj
-```
-
-#### 4. Output Structure
-```
-CodeGenerator/
-├── BusinessLogic/
-├── DataAccess/
-```
-
-## License
-
-This project is licensed under the MIT License. See `LICENSE` for details.
-
-## Contributions
-
-Contributions are welcome. Please fork the repository and submit a pull request with your improvements or fixes.
+### 3. Code Generation  
+Automatically generates strongly typed C# classes based on database tables.  
+This is helpful when modeling domain entities, DTOs, or repository-layer objects.
